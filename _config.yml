@@ -5,36 +5,37 @@ url                          : "http://distillabs.github.io" # the base hostname
                                   # `http://<username>.github.io` - for GitHub
 
 blog:
-  title                      : distil
-  description                  : >
-                               Roblox Game Dev & Content Creator
+  title                      : Distil Labs
+  description                : 
+
+
+                               
 
 # Layout configuration
-  logo_path                  : "assets/img/distil.svg" # path to logo file
+  logo_path                  : "https://www.svgrepo.com/show/231250/chat-conversation.svg" # path to logo file
   search_path                : "distillabs.github.io"
                                # needed for searchbox in archive page
   hero_layout                : true # turn on hero layout for blog and posts
   hero_placeholder           : "assets/img/generic_hero.jpg" # placeholder for hero image
   excerpts                   : true # show excerpts instead of full post content on blog page
   inline_footnotes           : true # enable/disable barefoot inline footnotes
-  titles_only                : false # show post titles only on main blog page
+  titles_only                : true # show post titles only on main blog page
 
 # Fonts
-  font                       : '"Rubik", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif'
-  load_google_fonts          : 'Rubik:400,400italic,700,700italic'
-
+  font                       : '"Rubik", -apple-system, BlinkMacSystemFont, "Zen Antique Soft", serif'
+  load_google_fonts          : 'Rubik:400,400italic,700,700italic' # ,'Zen Antique Soft:400',400italic,700,700italic'
 
 # Author info
 author:
   fullname                  : Distil
   rss                       : true # generate RSS feed and show it's icon in header
-  mail                      : distil@mux8.com # change to your e-mail address
-  twitter                   : twitter-user-name
-  github                    : github-user-name
-  youtube                   : DistilRoblox
-  stackoverflow             : stackoverflow-user-name
-  disqus                    : dactl # your disqus site name
-  google_analytics          : # 'UA-XXXXXXXX-X'
+  mail                      : 
+  twitter                   : 
+  github                    : 
+  youtube                   : @DistilRoblox
+  stackoverflow             : 
+  disqus                    : # disabled, since Disqus was displaying inappropriate ads. Change it to "detalk" when safe
+  google_analytics          : 'G-'
   photo                     : "uploads/me2.png"
   photo2x                   : "uploads/me.png"
 
@@ -113,6 +114,6 @@ compress_html:
   endings                 : all
   comments                : ["<!-- ", " -->"]
   blanklines              : true
-  profile                 : false
+  profile                 : true
   ignore:
   envs                    : [local]
