@@ -5,31 +5,10 @@ import { ArrowLeft, ChevronRight } from "lucide-react"
 import Link from "next/link"
 import { motion } from "framer-motion"
 
-const brands = [
-  "MuxDay",
-  "MuxAI",
-  "Time Co.",
-  "Amrella",
-  "Codbel Carigors",
-  "THRXT Technologies",
-  "Kodbell-Amrella Media",
-  "VewDew Hundred Corp",
-  "Sawpman Enterprise",
-  "Ulikoo",
-  "Webnova Publishing",
-  "MuktoDMI Studios",
-  "Mux App Division",
-  "Mux Games",
-  "Bongojukti",
-  "Mux Anime Studios",
-  "ICEferno",
-  "Exalux",
-]
-
 const DynamicCanvas = dynamic(() => import("@react-three/fiber").then((mod) => mod.Canvas), { ssr: false })
 const DynamicStars = dynamic(() => import("@react-three/drei").then((mod) => mod.Stars), { ssr: false })
 
-export default function BrandsPage() {
+export default function ContactPage() {
   return (
     <div className="min-h-screen bg-black text-white relative">
       <DynamicCanvas className="absolute inset-0 -z-10">
@@ -49,33 +28,26 @@ export default function BrandsPage() {
           </Link>
 
           <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent mb-8">
-            Recognized Concerns
+            Transmission Hub
           </h1>
 
           <div className="bg-black/20 border border-cyan-500/20 rounded-xl p-8 backdrop-blur-sm">
             <p className="text-gray-300 leading-relaxed mb-6">
-              Asenturisk Corporation proudly encompasses a diverse portfolio of brands, each of which is a beacon of innovation in its respective domain.
+              Ready to connect with the Asenturisk Corporation? Our communication channels span across multiple dimensions of digital space.
             </p>
-            <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-300">
-              {brands.map((brand, index) => (
-                <motion.li
-                  key={brand}
-                  className="flex items-center p-3 bg-black/10 rounded-lg border border-transparent hover:border-cyan-500/30 transition-all duration-200"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
-                >
-                  <span className="text-cyan-400 mr-3">
-                    <ChevronRight className="w-4 h-4" />
-                  </span>
-                  {brand}
-                </motion.li>
-              ))}
-            </ul>
-          </div>
-          <p className="text-gray-300 leading-relaxed mb-6">          
-          As time goes on, our list continues to grow evermore stronger and longer. Many a time, we might forget to update or include a few of our subsidiaries. In case we do, please free to request removal of errata.
-          </p>
+             <p className="text-gray-300 leading-relaxed mb-6">
+              Our network spans multiple nations, communities and continents for which we are located wherever our members and employees are standing. Thus, we refuse to disclose any locations as being our official headquarters.
+            </p>
+             <p className="text-gray-300 leading-relaxed mb-6">
+              - <b>YouTube</b>: /@Asenturisk
+              - <b>Facebook</b>: /asenturisk
+              - <b>Instagram</b>: /asenturisk
+              - <b>GitHub</b>: /asenturisk
+            </p>
+             <p className="text-gray-300 leading-relaxed mb-6">
+              Besides these aforementioned platforms, our team may use other profiles in order to interact with customers, investors and critics alike.
+            </p>
+          </div>          
         </motion.div>
       </div>
     </div>
