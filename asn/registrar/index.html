@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASN Domain Registrar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        @keyframes marquee-reverse {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+        .marquee {
+            animation: marquee 30s linear infinite;
+        }
+        .marquee-reverse {
+            animation: marquee-reverse 30s linear infinite;
+        }
+        /* Hide scrollbar but keep functionality */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-b from-purple-950 to-black text-white min-h-screen flex flex-col items-center justify-center overflow-hidden">
+    <!-- Logo -->
+    <div class="absolute top-4 text-center">
+        <span class="text-lg font-bold">domains</span>
+        <span class="text-lg font-bold text-cyan-400">.</span>
+        <span class="text-lg font-bold">asn</span>
+    </div>
+
+    <!-- Main Content -->
+    <div class="text-center mt-16">
+        <h1 class="text-4xl md:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-cyan-400 animate-pulse">
+            Grab your free .asn domain!
+        </h1>
+
+        <!-- Domain Search -->
+        <div class="mt-8 flex justify-center">
+            <div class="relative w-80 md:w-96">
+                <input id="domainInput" type="text" placeholder="Enter domain name" class="w-full bg-gray-900/80 text-white border border-purple-500/50 rounded-full py-3 pl-4 pr-20 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all" />
+                <span class="absolute right-12 top-1/2 transform -translate-y-1/2 text-gray-400">.asn</span>
+                <button id="searchButton" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-cyan-400 hover:text-cyan-300">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Loading and Error Message -->
+        <div id="loading" class="hidden mt-4 text-cyan-400 flex items-center justify-center">
+            <svg class="animate-spin h-5 w-5 mr-2" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            Checking availability...
+        </div>
+        <div id="error" class="hidden mt-4 text-red-400">
+            The ASN registrar is not accepting requests right now.
+        </div>
+    </div>
+
+    <!-- Marquee Layers -->
+    <div class="w-full mt-12 overflow-hidden no-scrollbar">
+        <!-- First Marquee Layer -->
+        <div class="marquee flex">
+            <div class="flex space-x-4">
+                <div class="bg-gray-900/60 border border-purple-500/30 rounded-full px-4 py-2 text-sm text-cyan-400">discord.asn</div>
+                <div class="bg-gray-900/60 border border-purple-500/30 rounded-full px-4 py-2 text-sm text-cyan-400">noodles.asn</div>
+                <div class="bg-gray-900/60 border border-purple-500/30 rounded-full px-4 py-2 text-sm text-cyan-400">gamer.asn</div>
+                <div class="bg-gray-900/60 border border-purple-500/30 rounded-full px-4 py-2 text-sm text-cyan-400">power.asn</div>
+                <div class="bg-gray-900/60 border border-purple-500/30 rounded-full px-4 py-2 text-sm text-cyan-400">stream.asn</div>
+                <div class="bg-gray-900/60 border border-purple-500/30 rounded-full px-4 py-2 text-sm text-cyan-400">cool.asn</div>
+                <div class="bg-gray-900/60 border border-purple-500/30 rounded-full px-4 py-2 text-sm text-cyan-400">guitar.asn</div>
+                <div class="bg-gray-900/60 border border-purple-500/30 rounded-full px-4 py-2 text-sm text-cyan-400">tech.asn</div>
+                <div class="bg-gray-900/60 border border-purple-500/30 rounded-full px-4 py-2 text-sm text-cyan-400">code.asn</div>
+                <div class="bg-gray-900/60 border border-purple-500/30 rounded-full px-4 py-2 text-sm text-cyan-400">music.asn</div>
+            </div>
+            <!-- Duplicate for seamless loop -->
+            <div class="flex space-x-4">
+                <div class="bg-gray-900/60 border border-purple-500/30 rounded-full px-4 py-2 text-sm text-cyan-400">discord.asn</div>
+                <div class="bg-gray-900/60 border border-purple-500/30 rounded-full px-4 py-2 text-sm text-cyan-400">noodles.asn</div>
+                <div class="bg-gray-900/60 border border-purple-500/30 rounded-full px-4 py-2 text-sm text-cyan-400">gamer.asn</div>
+                <div class="bg-gray-900/60 border border-purple-500/30 rounded-full px-4 py-2 text-sm text-cyan-400">power.asn</div>
+                <div class="bg-gray-900/60 border border-purple-500/30 rounded-full px-4 py-2 text-sm text-cyan-400">stream.asn</div>
+                <div class="bg-gray-900/60 border border-purple-500/30 rounded-full px-4 py-2 text-sm text-cyan-400">cool.asn</div>
+                <div class="bg-gray-900/60 border border-purple-500/30 rounded-full px-4 py-2 text-sm text-cyan-400">guitar.asn</div>
+                <div class="bg-gray-900/60 border border-purple-500/30 rounded-full px-4 py-2 text-sm text-cyan-400">tech.asn</div>
+                <div class="bg-gray-900/60 border border-purple-500/30 rounded-full px-4 py-2 text-sm text-cyan-400">code.asn</div>
+                <div class="bg-gray-900/60 border border-purple-500/30 rounded-full px-4 py-2 text-sm text-cyan-400">music.asn</div>
+            </div>
+        </div>
+        <!-- Second Marquee Layer (Reverse) -->
+        <div class="marquee-reverse flex mt-4">
+            <div class="flex space-x-4">
+                <div class="bg-gray-900/60 border border-purple-500/30 rounded-full px-4 py-2 text-sm text-cyan-400">pizza.asn</div>
+                <div class="bg-gray-900/60 border border-purple-500/30 rounded-full px-4 py-2 text-sm text-cyan-400">shop.asn</div>
+                <div class="bg-gray-900/60 border border-purple-500/30 rounded-full px-4 py-2 text-sm text-cyan-400">art.asn</div>
+                <div class="bg-gray-900/60 border border-purple-500/30 rounded-full px-4 py-2 text-sm text-cyan-400">blog.asn</div>
+                <div class="bg-gray-900/60 border border-purple-500/30 rounded-full px-4 py-2 text-sm text-cyan-400">live.asn</div>
+                <div class="bg-gray-900/60 border border-purple-500/30 rounded-full px-4 py-2 text-sm text-cyan-400">news.asn</div>
+                <div class="bg-gray-900/60 border border-purple-500/30 rounded-full px-4 py-2 text-sm text-cyan-400">fit.asn</div>
+                <div class="bg-gray-900/60 border border-purple-500/30 rounded-full px-4 py-2 text-sm text-cyan-400">cloud.asn</div>
+                <div class="bg-gray-900/60 border border-purple-500/30 rounded-full px-4 py-2 text-sm text-cyan-400">game.asn</div>
+                <div class="bg-gray-900/60 border border-purple-500/30 rounded-full px-4 py-2 text-sm text-cyan-400">pro.asn</div>
+            </div>
+            <!-- Duplicate for seamless loop -->
+            <div class="flex space-x-4">
+                <div class="bg-gray-900/60 border border-purple-500/30 rounded-full px-4 py-2 text-sm text-cyan-400">pizza.asn</div>
+                <div class="bg-gray-900/60 border border-purple-500/30 rounded-full px-4 py-2 text-sm text-cyan-400">shop.asn</div>
+                <div class="bg-gray-900/60 border border-purple-500/30 rounded-full px-4 py-2 text-sm text-cyan-400">art.asn</div>
+                <div class="bg-gray-900/60 border border-purple-500/30 rounded-full px-4 py-2 text-sm text-cyan-400">blog.asn</div>
+                <div class="bg-gray-900/60 border border-purple-500/30 rounded-full px-4 py-2 text-sm text-cyan-400">live.asn</div>
+                <div class="bg-gray-900/60 border border-purple-500/30 rounded-full px-4 py-2 text-sm text-cyan-400">news.asn</div>
+                <div class="bg-gray-900/60 border border-purple-500/30 rounded-full px-4 py-2 text-sm text-cyan-400">fit.asn</div>
+                <div class="bg-gray-900/60 border border-purple-500/30 rounded-full px-4 py-2 text-sm text-cyan-400">cloud.asn</div>
+                <div class="bg-gray-900/60 border border-purple-500/30 rounded-full px-4 py-2 text-sm text-cyan-400">game.asn</div>
+                <div class="bg-gray-900/60 border border-purple-500/30 rounded-full px-4 py-2 text-sm text-cyan-400">pro.asn</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Search Functionality -->
+    <script>
+        const searchButton = document.getElementById('searchButton');
+        const loading = document.getElementById('loading');
+        const error = document.getElementById('error');
+
+        searchButton.addEventListener('click', () => {
+            // Show loading
+            loading.classList.remove('hidden');
+            error.classList.add('hidden');
+
+            // Random delay between 1-6 seconds
+            const delay = Math.floor(Math.random() * 5000) + 1000;
+
+            setTimeout(() => {
+                // Hide loading, show error
+                loading.classList.add('hidden');
+                error.classList.remove('hidden');
+            }, delay);
+        });
+    </script>
+</body>
+</html>
