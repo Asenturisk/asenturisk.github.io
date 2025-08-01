@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASN Portal</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #000;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            font-size: 24px;
+            text-align: center;
+        }
+        .glow {
+            animation: glow 1.5s ease-in-out infinite alternate;
+            color: #fff;
+            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ccc;
+        }
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ccc;
+            }
+            to {
+                text-shadow: 0 0 20px #fff, 0 0 20px #fff, 0 0 20px #ccc;
+            }
+        }
+    </style>
+</head>
+<body>
+    <p>Enter a <span class="glow">.asn</span> URL in the address bar to begin</p>
+</body>
+</html>
