@@ -19,7 +19,6 @@ const brands = [
   "Stratagem Works",
   "Ulikoo",
   "Webnova Publishing",
-  "MuktoDMI Studios",
   "Mux App Division",
   "Mux Games",
   "Mux Social",
