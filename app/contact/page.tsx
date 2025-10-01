@@ -1,7 +1,7 @@
 "use client"
 
 import dynamic from "next/dynamic"
-import { ArrowLeft, ChevronRight } from "lucide-react"
+import { ArrowLeft, Github, Linkedin, Youtube, Facebook, Instagram } from "lucide-react"
 import Link from "next/link"
 import { motion } from "framer-motion"
 
@@ -9,6 +9,15 @@ const DynamicCanvas = dynamic(() => import("@react-three/fiber").then((mod) => m
 const DynamicStars = dynamic(() => import("@react-three/drei").then((mod) => mod.Stars), { ssr: false })
 
 export default function ContactPage() {
+  const platforms = [
+    { name: "YouTube", icon: <Youtube />, url: "https://www.youtube.com/@Asenturisk" },
+    { name: "Facebook", icon: <Facebook />, url: "https://www.facebook.com/asenturisk" },
+    { name: "Instagram", icon: <Instagram />, url: "https://www.instagram.com/asenturisk" },
+    { name: "GitHub", icon: <Github />, url: "https://github.com/asenturisk" },
+    { name: "LinkedIn", icon: <Linkedin />, url: "https://www.linkedin.com/company/asenturisk" },
+    { name: "HuggingFace", icon: <img src="/huggingface-icon.svg" alt="HuggingFace" className="w-5 h-5" />, url: "https://huggingface.co/asenturisk" },
+  ]
+
   return (
     <div className="min-h-screen bg-black text-white relative">
       <DynamicCanvas className="absolute inset-0 -z-10">
@@ -35,19 +44,23 @@ export default function ContactPage() {
             <p className="text-gray-300 leading-relaxed mb-6">
               Ready to connect with the Asenturisk Corporation? Our communication channels span across multiple dimensions of digital space.
             </p>
-             <p className="text-gray-300 leading-relaxed mb-6">
+            <p className="text-gray-300 leading-relaxed mb-6">
               Our network spans multiple nations, communities and continents for which we are located wherever our members and employees are standing. Thus, we refuse to disclose any locations as being our official headquarters.
             </p>
-             <p className="text-gray-300 leading-relaxed mb-6">
-              - <b>YouTube</b>: /@Asenturisk
-              - <b>Facebook</b>: /asenturisk
-              - <b>Instagram</b>: /asenturisk
-              - <b>GitHub</b>: /asenturisk
+
+            <div className="flex flex-wrap gap-4 items-center mb-6">
+              {platforms.map((p) => (
+                <Link key={p.name} href={p.url} target="_blank" className="flex items-center gap-2 text-gray-200 hover:text-cyan-400 transition-colors">
+                  <span className="w-5 h-5">{p.icon}</span>
+                  <span>{p.name}</span>
+                </Link>
+              ))}
+            </div>
+
+            <p className="text-gray-300 leading-relaxed mb-6">
+              Besides these aforementioned platforms, our team may use other profiles in order to interact with customers, investors and critics alike. However, please be aware if they are actual authorized members of Asenturisk. Our staff would never threaten or request for any sort of sensitive information from our clients.
             </p>
-             <p className="text-gray-300 leading-relaxed mb-6">
-              Besides these aforementioned platforms, our team may use other profiles in order to interact with customers, investors and critics alike.
-            </p>
-          </div>          
+          </div>
         </motion.div>
       </div>
     </div>
